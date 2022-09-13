@@ -26,6 +26,11 @@ jobs:
       with:
           credentials_json: '${{ secrets.REGISTRY_SERVICE_KEY }}'
           
+    - name: Configure Docker Client
+      run: |-
+        gcloud auth configure-docker --quiet
+        gcloud auth configure-docker europe-west3-docker.pkg.dev --quiet
+          
     - name: Build and push Docker
       run: |
           cd flask-app
