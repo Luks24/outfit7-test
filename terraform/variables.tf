@@ -13,3 +13,8 @@ variable "zone" {
   type        = string
   default     = "europe-west3-a"
 }
+variable "repository" {
+  description = "The name of the Artifact Registry repository to be created"
+  type        = string
+  default     = "docker-test-repository"
+}
