@@ -13,7 +13,3 @@ variable "zone" {
   type        = string
   default     = "europe-west3-a"
 }
-variable "name" {
-  description = "name prefix for resources"
-  type        = string
-}
