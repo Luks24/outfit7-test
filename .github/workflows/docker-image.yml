@@ -53,6 +53,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_SERVICE_KEY }}'
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
