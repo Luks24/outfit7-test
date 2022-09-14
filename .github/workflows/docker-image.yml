@@ -38,8 +38,7 @@ jobs:
           docker image push europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:latest
           docker image push europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:${{github.sha}}
       shell: bash
-      
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
@@ -50,10 +49,11 @@ jobs:
       run: terraform init
       working-directory: ./provision-infrastructure
 
-   # - name: Terraform Apply
+    - name: Terraform Apply
       uses: dflook/terraform-apply@v1
       with:
         var: git_id=${{github.sha}}
         path: "./provision-infrastructure"
         auto_approve: true
+      
 
