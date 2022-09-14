@@ -76,3 +76,9 @@ jobs:
             git_id="${{github.sha}}"
           path: "./provision-infrastructure"
           auto_approve: true
+
+      - name: Terraform Destroy
+        uses: dflook/terraform-destroy-workspace@v1
+        with:
+          path: "./provision-infrastructure"
+          auto_approve: true
