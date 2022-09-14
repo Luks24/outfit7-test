@@ -52,7 +52,8 @@ jobs:
     - name: Terraform Apply
       uses: dflook/terraform-apply@v1
       with:
-        var: git_id=${{github.sha}}
+        variables: |
+          git_id="${{github.sha}}"
         path: "./provision-infrastructure"
         auto_approve: true
       
