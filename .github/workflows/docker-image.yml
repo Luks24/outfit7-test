@@ -78,7 +78,7 @@ jobs:
           auto_approve: true
 
       - name: Terraform Destroy
-        uses: dflook/terraform-destroy-workspace@v1
+        uses: dflook/terraform-destroy@v1
         with:
           path: "./provision-infrastructure"
           auto_approve: true
