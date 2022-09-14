@@ -67,7 +67,7 @@ resource "google_service_account" "docker_pusher" {
   display_name = "Docker Container Pusher"
   depends_on =[time_sleep.wait_30_seconds]
 }
-# Give service account permission to push to the Artifact Registry Repository
+# Service account permission to push to the Artifact Registry Repository
 resource "google_artifact_registry_repository_iam_member" "docker_pusher_iam" {
   provider = google-beta
   location = google_artifact_registry_repository.my_docker_repo.location
