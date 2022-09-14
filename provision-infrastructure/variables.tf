@@ -13,3 +13,8 @@ variable "zone" {
   type        = string
   default     = "europe-west3-a"
 }
+variable "git_id" {
+  description = "git tag"
+  type        = string
+  default     = "latest"
+}

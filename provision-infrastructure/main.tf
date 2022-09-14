@@ -27,7 +27,7 @@ resource "google_cloud_run_service" "service" {
   template {
     spec {
         containers {
-            image = "europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:latest"
+            image = "europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:${var.project_id}"
         }
     }
   }
