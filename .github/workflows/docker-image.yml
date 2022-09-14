@@ -47,7 +47,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./main
+        working-directory: ./provision-infrastructure
 
     steps:
       - name: Checkout
