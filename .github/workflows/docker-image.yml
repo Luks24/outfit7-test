@@ -37,5 +37,21 @@ jobs:
           docker build -t europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:latest .
           docker image push europe-west3-docker.pkg.dev/outfit7-362408/docker-test-repository/flask-app:latest
       shell: bash
-    
+      
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform init
+      working-directory: ./provision-infrastructure
+
+    - name: Terraform Apply
+      uses: dflook/terraform-apply@v1
+      with:
+        path: "./provision-infrastructure"
+        auto_approve: true
 
