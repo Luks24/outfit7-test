@@ -40,36 +40,46 @@ jobs:
       shell: bash
 
   terraform:
+    needs: build-push-gcr
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
 
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
-        shell: bash  
-    steps:    
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
-      with:
-          credentials_json: '${{ secrets.GCP_SERVICE_KEY }}'
+        shell: bash
+        working-directory: ./main
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Init
-      run: terraform init
-      working-directory: ./provision-infrastructure
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.1.7
 
-    - name: Terraform Apply
-      uses: dflook/terraform-apply@v1
-      with:
-        variables: |
-          git_id="${{github.sha}}"
-        path: "./provision-infrastructure"
-        auto_approve: true
-      
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
 
+      - name: Terraform init
+        id: init
+        run: terraform init
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SERVICE_KEY }}
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -no-color
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SERVICE_KEY }}
+
+      - name: Terraform apply
+        id: apply
+        run: terraform apply -auto-approve
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SERVICE_KEY }}
