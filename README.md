@@ -29,7 +29,7 @@ In your project go under `IAM & Admin > Service Accounts`. Once you are there cl
 The next step is to give it this roles and then save.
 
 
-![image](https://user-images.githubusercontent.com/25723597/190396342-a2d5cd12-efbd-4f68-b1e9-36096f8f526f.png)
+![image](https://user-images.githubusercontent.com/25723597/190426785-9745f6d5-7f38-425d-a9dc-1dd0e86bc248.png)
 
 ### Step 3
 
