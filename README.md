@@ -92,6 +92,8 @@ To tell a little more about the project.
 
 There is a load balancer in front that routes the traffic and I also had to create NEGs because we have multiple cloud run instances.
 
+If you have a more complex app it would be good to add a test step before we build the docker image so that we don't push broken images.
+
 I used google run for this but you could also use GKE to deploy your container service ( could be another project)
 
 If you have any more questions regarding this project please contact me.
