@@ -5,8 +5,10 @@ url = "http://metadata.google.internal/computeMetadata/v1/instance/region"
 
 @app.route('/')
 def hello_ekipa():
-
-    region = requests.get(url)
+    headers = {  
+    "Metadata-Flavor": "Google",
+    }
+    region = requests.get(url, headers=headers)
     return '<h1>{}</h2>'.format(region)
     
 
