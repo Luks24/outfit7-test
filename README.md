@@ -69,12 +69,21 @@ The first is GCP_SERVICE_KEY. here we paste the content from or service_key.json
 
 The second is REGISTRY_SERVICE_KEY. Go back to GCP to the `IAM & Admin > Service Accounts`. You will finde a new service account docker pusher that was created with terraform code from the `tf-initial-provisioning` folder ( sometimes the service is not visible so i refreshed the page and it worked, you can also try to re-run terraform init and apply inside `tf-initial-provisioning` if for some reason it didn't work). Like in step 3 generate a key. YOu will paste the content of this key to the secret ( you can also store it in .keys folder for future needs).
 
+![image](https://user-images.githubusercontent.com/25723597/190438376-f4a5f409-92f7-4047-81aa-a9fb6d1f8520.png)
+
+
 ### Step 8
 
 Now go to the folder .github/workflows and edit the yaml file inside. Under env. You vil si a variable PROJECT_ID. Paste your project id as the values. 
+
+![image](https://user-images.githubusercontent.com/25723597/190438531-06aef5fe-6794-40fd-9f64-9c5c61805049.png)
+
 
 ### Step 
 
 Now if you commit and push to Github it should automaticly trigger the CI/CD pipeline that will build and deploy our app in 3 different cloud run regions.
 You will also see inside you workflow execution that under the step Terraform apply there will be an IP in the end. Use that IP to access you application.
+
+![image](https://user-images.githubusercontent.com/25723597/190438665-bed1795f-4965-4f21-854b-26bad2bc96b4.png)
+
 
