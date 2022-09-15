@@ -25,6 +25,20 @@ Go to you GCP account and create a new project (If you don't know how to create 
 
 In your project go under `IAM & Admin > Service Accounts`. Once you are there click on `create service account`. Now give it a name and save it.
 
-The next step is to go under `IAM & Admin > IAM` find your create account and give it this roles ![image](https://user-images.githubusercontent.com/25723597/190396342-a2d5cd12-efbd-4f68-b1e9-36096f8f526f.png)
+The next step is to go under `IAM & Admin > IAM` find your create account and give it this roles and then save.
+
+
+![image](https://user-images.githubusercontent.com/25723597/190396342-a2d5cd12-efbd-4f68-b1e9-36096f8f526f.png)
+
+### Step 3
+
+The next step is now to generate a key file. To do that go back to `IAM & Admin > Service Accounts` and click on the account you created. You should then go under keys and click on crete key (see picture below). Chose the JSON format.
+
+![image](https://user-images.githubusercontent.com/25723597/190396795-abc5f9d3-fd72-466e-9116-55895537bfe8.png)
+
+### Step 4
+
+you will now get into the root directory of the project and crete a folder named `.keys`. Into that folder you will paste the JSON file that was just creted. You will also rename the file to `service_key.json`
+
 
 
