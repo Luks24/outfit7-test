@@ -1,17 +1,11 @@
 from flask import Flask
-import requests
+
 app = Flask(__name__)
-url = "http://metadata.google.internal/computeMetadata/v1/instance/region"
 
 @app.route('/')
 def hello_ekipa():
-    headers = {  
-    "Metadata-Flavor": "Google",
-    }
-    region = requests.get(url, headers=headers)
-    return '<h1>{}</h2>'.format(region)
-    
 
+    return '<h1>Hello Outfit7</h2>'
 
 if __name__ == "__main__":
     app.run(debug=True)
