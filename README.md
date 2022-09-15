@@ -53,9 +53,9 @@ in each of this folders you will have a `variables.tf` file. Here we store the v
 
 ### Step 6
 
-Since I wanted to work as much as possible with the principals of IaC we will use terraform to enable the APIs for services and create a artifacts regestry and service account for pushing docker images ( this is in the folder `tf-initial-provisioning`). We will also create a bucket in GCP for storing our terraform state ( this is in the folder `tf-backend`). 
+Since I wanted to work as much as possible with the principals of IaC we will use terraform to enable the APIs for services and create a artifacts registry and service account for pushing docker images ( this is in the folder `tf-initial-provisioning`). We will also create a bucket in GCP for storing our terraform state ( this is in the folder `tf-backend`). 
 
-Since we will run this files only in the begining I won't push the state to the bucket. THe bucket will be used to keep the state regarding google run.
+Since we will run this files only in the begining I won't push the state to the bucket. The bucket will be used to keep the state regarding google run.
 
 Now go to folder `tf-initial-provisioning` and first run `terraform init` and the `terraform apply`. 
 
