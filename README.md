@@ -13,7 +13,9 @@ In the coming sections I will describe step by step how you can make this projec
 
 ## Prerequisite
 
-You will need a GCP account and you will need to clone this repo to your repository. You will also need to make the repo private since we will have to use service keys that are confidential.
+You will need a GCP account and you will need to clone this repo to your repository. You will also need to make the repo private when you publish it on GitHub since we will have to use service keys that are confidential.
+
+You will have to publish the repo on GitHub for it to work, since we use GitHub actions for our CI/CD pipeline.
 
 ## Steps
 
@@ -61,4 +63,18 @@ After that is finished go also in the folder `tf-backend` and run the same comma
 
 ### Step 7
 
+Now we move To Github where we will go under `settings/secrets/actions`. Here we will create 2 repository secrets ( for the code to work please name them the same as I did).
+
+The first is GCP_SERVICE_KEY. here we paste the content from or service_key.json file and then save the secret.
+
+The second is REGISTRY_SERVICE_KEY. Go back to GCP to the `IAM & Admin > Service Accounts`. You will finde a new service account docker pusher that was created with terraform code from the `tf-initial-provisioning` folder. Like in step 3 generate a key. YOu will paste the content of this key to the secret ( you can also store it in .keys folder for future needs).
+
+### Step 8
+
+Now go to the folder .github/workflows and edit the yaml file inside. Under env. You vil si a variable PROJECT_ID. Paste your project id as the values. 
+
+### Step 
+
+Now if you commit and push to Github it should automaticly trigger the CI/CD pipeline that will build and deploy our app in 3 different cloud run regions.
+You will also see inside you workflow execution that under the step Terraform apply there will be an IP in the end. Use that IP to access you application.
 
