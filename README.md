@@ -59,7 +59,7 @@ Since we will run this files only in the begining I won't push the state to the 
 
 Now go to folder `tf-initial-provisioning` and first run `terraform init` and the `terraform apply`. 
 
-After that is finished go also in the folder `tf-backend` and run the same commands. If terraform apply fails, delete all files inside `tf-backend` execpt for `main.tf` and `variables.tf` and then repeat terraform init and apply. When terraform apply finnishes it will output the bucket name. Copy that name and paste it in `/provision-infrastructure/backend.tf`.
+After that is finished go also in the folder `tf-backend` and run the same commands. If terraform apply fails ( sometimes happens error 403), delete all files inside `tf-backend` execpt for `main.tf` and `variables.tf` and then repeat terraform init and apply. When terraform apply finnishes it will output the bucket name. Copy that name and paste it in `/provision-infrastructure/backend.tf`.
 
 ### Step 7
 
