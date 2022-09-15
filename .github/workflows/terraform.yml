@@ -31,10 +31,10 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
-      working-directory: ./terraform
+      working-directory: ./tf-initial-provisioning
 
     - name: Terraform Apply
       uses: dflook/terraform-apply@v1
       with:
-        path: "./terraform"
+        path: "./tf-initial-provisioning"
         auto_approve: true
