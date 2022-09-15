@@ -75,7 +75,7 @@ jobs:
             git_id="${{github.sha}}"
           path: "./provision-infrastructure"
           auto_approve: true
-
+    # If you want to destroy the resource created by the former step just comment the former step and un-comment this one and save
      # - name: Terraform Destroy
      #   uses: dflook/terraform-destroy@v1
      #   with:
