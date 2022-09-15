@@ -38,6 +38,12 @@ resource "google_project_service" "resourcemanager" {
   service            = "cloudresourcemanager.googleapis.com"
   disable_on_destroy = false
 }
+# Enable Compute engine API
+resource "google_project_service" "computeengine" {
+  provider = google-beta
+  service            = "compute.googleapis.com"
+  disable_on_destroy = false
+}
 
 # This is used so there is some time for the activation of the API's to propagate through Google Cloud before actually calling them.
 
@@ -47,7 +53,8 @@ resource "time_sleep" "wait_30_seconds" {
     google_project_service.iam,
     google_project_service.artifactregistry,
     google_project_service.cloudrun,
-    google_project_service.resourcemanager
+    google_project_service.resourcemanager,
+    google_project_service.computeengine
     ]
 }
 
