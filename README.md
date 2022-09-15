@@ -67,7 +67,7 @@ Now we move To Github where we will go under `settings/secrets/actions`. Here we
 
 The first is GCP_SERVICE_KEY. here we paste the content from or service_key.json file and then save the secret.
 
-The second is REGISTRY_SERVICE_KEY. Go back to GCP to the `IAM & Admin > Service Accounts`. You will finde a new service account docker pusher that was created with terraform code from the `tf-initial-provisioning` folder. Like in step 3 generate a key. YOu will paste the content of this key to the secret ( you can also store it in .keys folder for future needs).
+The second is REGISTRY_SERVICE_KEY. Go back to GCP to the `IAM & Admin > Service Accounts`. You will finde a new service account docker pusher that was created with terraform code from the `tf-initial-provisioning` folder ( sometimes the service is not visible so i refreshed the page and it worked, you can also try to re-run terraform init and apply inside `tf-initial-provisioning` if for some reason it didn't work). Like in step 3 generate a key. YOu will paste the content of this key to the secret ( you can also store it in .keys folder for future needs).
 
 ### Step 8
 
