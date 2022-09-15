@@ -79,11 +79,21 @@ Now go to the folder .github/workflows and edit the yaml file inside. Under env.
 ![image](https://user-images.githubusercontent.com/25723597/190438531-06aef5fe-6794-40fd-9f64-9c5c61805049.png)
 
 
-### Step 
+### Step 9
 
-Now if you commit and push to Github it should automaticly trigger the CI/CD pipeline that will build and deploy our app in 3 different cloud run regions.
+Now if you commit and push to Github it should automaticly trigger the CI/CD pipeline that will build and deploy our app in 3 different cloud run regions ( the workflow trigers when a commit is made in the main branch).
 You will also see inside you workflow execution that under the step Terraform apply there will be an IP in the end. Use that IP to access you application.
 
 ![image](https://user-images.githubusercontent.com/25723597/190438665-bed1795f-4965-4f21-854b-26bad2bc96b4.png)
+
+## Final thoughts
+
+To tell a little more about the project.
+
+There is a load balancer in front that routes the traffic and I also had to create NEGs because we have multiple cloud run instances.
+
+I used google run for this but you could also use GKE to deploy your container service ( could be another project)
+
+If you have any more questions regarding this project please contact me.
 
 
